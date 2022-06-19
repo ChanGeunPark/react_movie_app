@@ -18,7 +18,6 @@ export default function Home() {
   console.log(movies);
   return (
     <div>
-      <h2></h2>
       {loading ? (
         <h1>loading...</h1>
       ) : (
@@ -27,6 +26,7 @@ export default function Home() {
             {movies.map((movie) => (
               <Movie
                 key={movie.id}
+                id={movie.id}
                 mediumCoverImage={movie.medium_cover_image}
                 title={movie.title}
                 summary={movie.summary}

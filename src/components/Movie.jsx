@@ -1,10 +1,18 @@
 import PropTypes from "prop-types";
-
-export default function Movie({ mediumCoverImage, title, summary, genres }) {
+import { Link } from "react-router-dom";
+export default function Movie({
+  mediumCoverImage,
+  title,
+  summary,
+  genres,
+  id,
+}) {
   return (
     <div>
       <img src={mediumCoverImage} alt={title} />
-      <h2>{title}</h2>
+      <h2>
+        <Link to={`/movie/${id}`}>{title}</Link>
+      </h2>
       <p>{summary}</p>
       <ul>
         {genres.map((g) => (
@@ -16,6 +24,7 @@ export default function Movie({ mediumCoverImage, title, summary, genres }) {
 }
 
 Movie.propTypes = {
+  id: PropTypes.number.isRequired,
   mediumCoverImage: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
